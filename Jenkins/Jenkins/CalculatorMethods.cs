@@ -46,11 +46,21 @@ namespace Jenkins
             }
         }
 
-        public double Power(double x, int exp)
+        public double Power(double x, double exp)
         {
+            
             Accumulator = Math.Pow(x, exp);
-            return Math.Pow(x, exp);
-        }
+
+            if(Double.IsNaN(Accumulator))
+            {
+                throw new PowerException();
+            }
+            else
+            {
+                return Math.Pow(x, exp);
+            }
+        }   
+          
 
         public double AddToAccumulator(double a)
         {
@@ -84,10 +94,23 @@ namespace Jenkins
             }
         }
 
-        public double PowerToAccumulator(int exp)
+        public double PowerToAccumulator(double exp)
         {
-            Accumulator = Math.Pow(Accumulator, exp);
-            return Accumulator;
+
+
+
+            if (Double.IsNaN(Accumulator))
+            {
+                throw new PowerException();
+            }
+            else
+            {
+                Accumulator = Math.Pow(Accumulator, exp);
+
+                return Accumulator;
+            }
+
+
         }
     }
 }

@@ -135,20 +135,29 @@ namespace NUnitTestProject
                 Assert.AreEqual(uut.MultiplyWithAccumulator(a), result * a, 0.0001);
             }
 
-            [TestCase(3.75, 4, 1529326745.2420)]
-        [TestCase(-2, 2, 16)]
+        [TestCase(3.75, 4, 1529326745.2420)]
+        [TestCase(2, 1.5, 4.75688)]
         [TestCase(2, -2, 16)]
 
-        public void UnitTestPowerToAccumulator(double a, int exp, double result)
+        public void UnitTestPowerToAccumulator(double a, double exp, double result)
             {
                 uut.Power(a, exp);
 
                 Assert.AreEqual(uut.PowerToAccumulator(exp), result, 0.0001);
             }
 
-            [TestCase(1.75, 2.25, 0.7777)]
+        [Test]
+        public void UnitTestPowerToAccumalot_NegativeBase_NonIntegerPower()
+        {
+            uut.AddToAccumulator(-2);
+            Assert.Throws<PowerException>(() => uut.PowerToAccumulator(1.5));
+        }
+
+
+        [TestCase(1.75, 2.25, 0.7777)]
         [TestCase(-2, 4, -0.5)]
         [TestCase(5, -2.5, -2)]
+        [TestCase(2,0,0)]
         public void UnitTestDivideAccumulatorWith(double a, double b, double result)
             {
                 uut.Divide(a, b);

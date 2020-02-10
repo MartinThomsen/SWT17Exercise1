@@ -10,6 +10,13 @@ namespace Jenkins
     {
         static void Main(string[] args)
         {
+
+            CalculatorMethods test = new CalculatorMethods();
+
+            Console.WriteLine(test.Power(-2,1.5));
+            Console.WriteLine(test.PowerToAccumulator(1.5));
+
+            
         }
     }
 }
