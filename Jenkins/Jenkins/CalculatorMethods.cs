@@ -57,7 +57,7 @@ namespace Jenkins
             }
             else
             {
-                return Math.Pow(x, exp);
+                return Accumulator;
             }
         }   
           
@@ -106,7 +106,6 @@ namespace Jenkins
             }
             else
             {
-                Accumulator = Math.Pow(Accumulator, exp);
 
                 return Accumulator;
             }
