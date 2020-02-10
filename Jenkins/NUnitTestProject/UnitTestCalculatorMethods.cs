@@ -64,6 +64,7 @@ namespace NUnitTestProject
             }
 
             [TestCase(1, 2, 3)]
+
             public void UnitTestAccumulator_Add(double a, double b, double result)
             {
                 uut.Add(a, b);
@@ -101,6 +102,8 @@ namespace NUnitTestProject
             }
 
             [TestCase(3.75, 4.26, 8.01)]
+            [TestCase(-1.00,2.75,1.75)]
+            [TestCase(-2.54,-3.00,-5.54)]
 
             public void UnitTestAddWithAccumulator(double a, double b, double result)
             {
@@ -110,6 +113,9 @@ namespace NUnitTestProject
             }
 
             [TestCase(3.75, 4.26, -0.51)]
+            [TestCase(2.10, 3.70, -1.60)]
+            [TestCase(-3.20, -1, -2.2)]
+
 
             public void UnitTestSubtractFromAccumulator(double a, double b, double result)
             {
@@ -118,24 +124,32 @@ namespace NUnitTestProject
                 Assert.AreEqual(uut.SubtractFromAccumulator(a), result - a, 0.0001);
             }
 
-            [TestCase(3.75, 4.26, 15.975)]
-            public void UnitTestMultiplyWithAccumulator(double a, double b, double result)
+        [TestCase(3.75, 4.26, 15.975)]
+        [TestCase(-2, 3.2, -6.4)]
+        [TestCase(-1.5, -4.00, 6.00)]
+
+        public void UnitTestMultiplyWithAccumulator(double a, double b, double result)
             {
                 uut.Multiply(a, b);
 
                 Assert.AreEqual(uut.MultiplyWithAccumulator(a), result * a, 0.0001);
             }
 
-            [TestCase(3.75, 4, 197.7539)]
-            public void UnitTestPowerToAccumulator(double a, int exp, double result)
+            [TestCase(3.75, 4, 1529326745.2420)]
+        [TestCase(-2, 2, 16)]
+        [TestCase(2, -2, 16)]
+
+        public void UnitTestPowerToAccumulator(double a, int exp, double result)
             {
                 uut.Power(a, exp);
 
-                Assert.AreEqual(uut.PowerToAccumulator(exp), 1529326745.2420878, 0.0001);
+                Assert.AreEqual(uut.PowerToAccumulator(exp), result, 0.0001);
             }
 
             [TestCase(1.75, 2.25, 0.7777)]
-            public void UnitTestDivideAccumulatorWith(double a, double b, double result)
+        [TestCase(-2, 4, -0.5)]
+        [TestCase(5, -2.5, -2)]
+        public void UnitTestDivideAccumulatorWith(double a, double b, double result)
             {
                 uut.Divide(a, b);
 
