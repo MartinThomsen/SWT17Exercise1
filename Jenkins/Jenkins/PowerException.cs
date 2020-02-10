@@ -8,6 +8,10 @@ namespace Jenkins
 {
     public class PowerException:Exception
     {
+      public PowerException()
+        {
+
+        }
 
     }
 }

@@ -12,11 +12,17 @@ namespace Jenkins
         {
 
             CalculatorMethods test = new CalculatorMethods();
+            try
+            {
+                Console.WriteLine(test.Power(-2, 1.5));
+                Console.WriteLine(test.PowerToAccumulator(1.5));
+            }
+            catch (PowerException)
+            {
+                Console.WriteLine("use none negative when using non integer power");
 
-            Console.WriteLine(test.Power(-2,1.5));
-            Console.WriteLine(test.PowerToAccumulator(1.5));
+            }
 
-            
         }
     }
 }

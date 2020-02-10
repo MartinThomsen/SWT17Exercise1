@@ -96,11 +96,12 @@ namespace Jenkins
 
         public double PowerToAccumulator(double exp)
         {
-
+            Accumulator = Math.Pow(Accumulator, exp);
 
 
             if (Double.IsNaN(Accumulator))
             {
+                Accumulator = 0.0;
                 throw new PowerException();
             }
             else
